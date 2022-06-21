@@ -20,7 +20,7 @@ html {
   scroll-behavior: smooth;
 }
 
-@media (width: 360px) {
+@media (max-width: 360px) {
   html {
     width: 100vw;
     min-height: 100vh;
@@ -208,7 +208,7 @@ body {
   display: none;
 }
 
-@media (width: 360px) {
+@media (max-width: 360px) {
   .nv label {
     display: block !important;
     width: 40px;
@@ -351,7 +351,7 @@ body {
   width: 90%;
 }
 
-@media (width: 360px) {
+@media (max-width: 360px) {
   .software {
     text-align: center;
     min-height: 37.5rem;
@@ -398,7 +398,7 @@ body {
   color: #5BFFCA;
 }
 
-@media (width: 360px) {
+@media (max-width: 360px) {
   .service {
     text-align: center;
   }
@@ -479,7 +479,7 @@ body {
   box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.102);
 }
 
-@media (width: 360px) {
+@media (max-width: 360px) {
   .saveT .mn {
     grid-row: 2/9;
     grid-column: 1/4;
@@ -595,7 +595,7 @@ body {
   box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.102);
 }
 
-@media (width: 360px) {
+@media (max-width: 360px) {
   #forms {
     min-height: 46.875rem;
     grid-template-rows: repeat(2, 1fr);
@@ -639,7 +639,7 @@ body {
   align-items: center;
 }
 
-@media (width: 360px) {
+@media (max-width: 360px) {
   .ft {
     min-height: 40.75rem;
     display: flex;
