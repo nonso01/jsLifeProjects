@@ -1,0 +1,617 @@
+//variables
+$mx-width: 146.9387755vw;
+$mx-width-st: 100vw;
+$trans: all 200ms ease;
+$bd: 1px solid rgba(0,0,0,0.102);
+$main-col: #5BFFCA;
+$dk-col: #2C2F2E;
+$dk-mod: #393b4a;
+$ts: transparent;
+$wt: #fff;
+$im:!important;
+$cn: center;
+$bd-r: 1;
+$ft: "openSans";
+$gtr: grid-template-rows;
+$gtc: grid-template-columns;
+$gta: grid-template-areas;
+*{
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+ outline:none;
+ list-style-type: none;
+ color: $dk-col;
+ font-family: $ft;
+}
+@font-face{
+ font-family: "openSans";
+ src: url("/src/OpenSans-VariableFont_wdth,wght.ttf");
+}
+html{
+ min-height: 100vh;
+ width: $mx-width;
+ font-size: 16px;
+ font-family: $ft;
+ scroll-behavior: smooth;
+}
+@media(width: 360px){
+ html{
+  width: $mx-width-st;
+  min-height: 100vh;
+ }
+}
+body{
+ min-width: inherit;
+ background: #fff;
+ position: relative;
+ transition: $trans;
+}
+
+@mixin flex-df($justify-space,$align,$row-col){
+ display: flex;
+ flex-flow:  $row-col;
+ justify-content: $justify-space;
+ align-items: $align;
+}
+
+@mixin df-btn($radius,$h,$w,$bg,$col,$hv-col,$hv-bg){
+ //implement
+ min-width: $w;
+ height: $h;
+ color: $col;
+ border-radius: $radius;
+ border: $bd;
+ padding: 4px 3px;
+ background: $bg;
+ transition: $trans;
+ cursor: pointer;
+ &:hover{
+  color:$hv-col;
+  background: $hv-bg;
+  border: $bd;
+  box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.102);
+ }
+}
+
+.hd{
+ position: relative;
+ padding-inline: 2%;
+ min-height: 37.5rem;
+display: grid;
+#{$gtr}: repeat(8,1fr);
+#{$gtc}: repeat(5,1fr);
+#{$gta}:
+"a a a a a"
+". . c c c"
+"b b c c c"
+"b b c c c"
+"b b c c c"
+"b b c c c"
+"b b c c c"
+". . c c c";
+grid-gap: 0.5rem;
+.nv{
+ position: sticky;
+ top:0;
+ z-index: 20;
+ background: $wt;
+ grid-area: a;
+ @include flex-df(space-between,$cn,row wrap);
+ div{
+  @include flex-df(space-evenly,$cn,row wrap);
+ button{
+  color: $dk-col;
+  font-weight: 600;
+ min-width: min(4.375rem);
+ text-align: $cn;
+ }
+}
+label{
+ display: none;
+}
+ .navUlOne{
+  z-index: 30;
+width: 60%;
+button{
+ @include df-btn(0.625rem,2.1875rem,min-content,$ts,$dk-col,$main-col,$dk-col);
+ flex: 0.1 1 auto;
+}
+.logo{
+ font-weight: 700;
+ font-style: normal;
+}
+ }
+ .navUlTwo{
+width: 20%;
+.log{//7.5rem
+ @include df-btn(0.625rem,2.5rem,min-content,$main-col,$dk-col,$main-col,$dk-col);
+ flex: 0.3 1 auto;
+}
+.sign{
+ @include df-btn(0.625rem,2.5rem,min-content,$ts,$dk-col,$main-col,$dk-col);
+  flex: 0.3 1 auto;
+}
+ }
+}
+
+.intro{
+ grid-area: b;
+ @include flex-df(space-evenly,$cn,column wrap);
+ text-align:$cn;
+  h1{
+   span{color: $main-col+ff;}
+  }
+  div{
+   width: 50%;
+    @include flex-df(space-evenly,$cn,row wrap);
+  }
+  //something is wrong with .getSt
+  .getSt{
+   @include df-btn(1.2rem,2.5rem,7.5rem,$main-col,$dk-col,$main-col,$dk-col);
+   font-family: $ft;
+  }
+  .rd{
+   width: 40px;
+   height: 40px;
+   border: $bd;
+   border-radius:$bd-r+49% ;
+   background: orangered;
+  }
+}
+.intro-img{
+ grid-area: c;
+background: url("/img_ico/lookingAtPc.jpg") no-repeat border-box center/cover;
+border-radius: 6px;
+color: $dk-col;
+display: grid;
+ #{$gtr}: repeat(3,1fr);
+ #{$gtc}: repeat(3,1fr);
+ #{$gta}: 
+ ". . ."
+ ". . ."
+ ". . a";
+ .grow{
+  grid-area: a;
+  background: $wt;
+  border-radius: 6px;
+  text-align: $cn;
+  @include flex-df(space-evenly,$cn,column wrap);
+  transition: $trans;
+  &:hover{
+   background: $dk-col;
+   p,h3{color: $wt;}
+  }
+ }
+
+}
+.cil{
+ display: none;//js
+}
+}
+
+@media(width:360px){
+ .nv{
+  label{
+   display: block $im;
+   width: 40px;
+   height: 40px;
+   border-radius: 4px;
+   cursor: pointer;
+   background: $wt;
+   z-index: 50;
+   span{
+    display: block;
+    height: 5px;
+    width: 95%;
+    margin: 15% auto 15% auto;
+    background: $dk-col;
+    border-radius: 15px;
+    transition: $trans;
+    &:nth-child(1){
+     transform:  scaleX(0.5) translateX(50%);
+    }
+    &:nth-child(3){
+     transform:  scaleX(0.5) translateX(-50%);
+    }
+   }
+  } 
+  #mn:checked ~ label span{
+   transform: none;
+  }
+  #mn:checked ~ .navUlOne{
+   transform: none;
+  }
+  .navUlOne{
+   @include flex-df(space-evenly $im,$cn $im,column wrap $im);
+   position: absolute;
+   top: 10%;
+   left: 5%;
+   width: 18.75rem $im;
+   min-height: 31.35rem;
+   background: $wt;
+   transition: $trans;
+   transform: scale(0) translateX(-400px);
+   border-radius: 5px;
+   box-shadow: 2px 2px 4px 3px rgba(0,0,0,0.102);
+   button{
+    width: 50% $im;
+   flex: 0 1 auto $im;
+   }
+  }
+  .navUlTwo{
+   width: 50% $im;
+  }
+ }
+ .intro{
+  flex-wrap: nowrap $im;
+  grid-row: 2/9 $im;
+  div{
+  width: 100% $im;
+  @include flex-df(space-evenly $im,$cn,column wrap $im);
+ }
+ }
+}
+
+@media(width: 740px){
+ .nv{
+ label{
+   display: block $im;
+   width: 2.5rem;
+   height: 2.5rem;
+   z-index: 50;
+   cursor: pointer;
+   background: $wt;
+   span{
+    display: block;
+    height: 5px;
+    width: 95%;
+    margin: 15% auto 15% auto;
+    background: $dk-col;
+    border-radius: 15px;
+    transition: $trans;
+    &:nth-child(1){
+     transform:  scaleX(0.5) translateX(50%);
+    }
+    &:nth-child(3){
+     transform:  scaleX(0.5) translateX(-50%);
+    }
+   }
+  }
+  #mn:checked ~ label span{
+   transform: none;
+  }
+  #mn:checked ~ .navUlOne{
+   transform: none;
+  }
+  .navUlOne{
+   @include flex-df(space-evenly $im,$cn $im,column wrap $im);
+   position: absolute;
+   top: 10%;
+   left: 5%;
+   width: 15.625rem $im;
+   height: 25rem;
+      background: $wt;
+   border: $bd;
+   transition: $trans;
+   transform: scale(0) translateX(-400px);
+   border-radius: 5px;
+   box-shadow: 2px 2px 4px 3px rgba(0,0,0,0.102);
+   button {
+    width: 50% $im;
+    flex: 0 1 auto $im;
+   }
+  }
+  .navUlTwo{
+   width: 50% $im;
+  }
+ }
+}
+/*
+@media (width: 980px){
+ .hd{
+  
+ }
+}*/
+
+.software{
+ min-height: 12.5rem;
+ @include flex-df(space-evenly,$cn,column wrap);
+ .logos{
+  @include flex-df(space-evenly,$cn,row wrap);
+  width: 90%;
+ }
+}
+@media(width: 360px){
+ .software{
+  text-align: $cn;
+  min-height: 37.5rem;
+  .logos{
+   @include flex-df(space-evenly,$cn,column wrap);
+   flex: 0.9 1 auto;
+  }
+ }
+}
+
+.service{
+ min-height: 9.375rem;
+ @include flex-df(space-evenly,$cn,column wrap);
+}
+#cards{
+ min-height: 31.25rem;
+ padding-inline: 1%;
+ display: grid;
+ #{$gtr}: repeat(2,1fr);
+ #{$gtc}: repeat(4,1fr);
+ grid-gap: 2rem 2rem;
+ .cd{
+  border-radius: 0.625rem;
+  padding-inline: 5%;
+  @include flex-df(space-evenly, flex end,column wrap);
+  box-shadow: 1px 1px 4px 3px rgba(0,0,0,0.0502);
+  transition: $trans;
+  &:hover{
+   background: $dk-col;
+   box-shadow: none;
+   h3,span{color: $main-col;}
+  }
+ }
+}
+@media (width: 360px){
+ .service{
+  text-align: $cn;
+ }
+ #cards{
+  min-height: 50rem;
+  #{$gtr}: repeat(4,1fr);
+  #{$gtc}: repeat(2,1fr);
+  grid-auto-flow: row;
+  grid-gap: 1rem 1rem;
+ }
+}
+.saveT{
+ min-height: 37.5rem;
+ display: grid;
+ #{$gtr}: repeat(8,1fr);
+ #{$gtc}: repeat(8,1fr);
+ .mn{
+  grid-row: 2/8;
+  grid-column: 1/4;
+  border-radius: 0.625rem;
+  background: url("/img_ico/bankMg.jpg") no-repeat border-box center/cover;
+  position: relative;
+  &:before{
+   display: block;
+   position: absolute;
+   content: '\"';
+   top: 20%;
+   left: 95%;
+   width: 3.125rem;
+   height: 3.125rem;
+   text-align: $cn;
+   font-size: 2.5rem;
+   border-radius: 50%;
+   background: rgba(0,0,0,0.102);
+  }
+ }
+ .save{
+  grid-row: 2/8;
+  grid-column: 5/9;
+  @include flex-df(space-evenly,$cn,column wrap);
+  text-align: center;
+  padding-inline: 4%;
+  position: relative;
+    &:before {
+     display: block;
+     position: absolute;
+     content: '\"';
+     top: 1%;
+     left: 2%;
+     width: 3.125rem;
+     height: 3.125rem;
+     text-align: $cn;
+     font-size: 2.5rem;
+     border-radius: 50%;
+     background: rgba(0,0,0,0.102);
+    }
+  .getSt{
+   @include df-btn(1.2rem,2.5rem,7.5rem,$main-col,$dk-col,$main-col,$dk-col); }
+}
+}
+@media (width: 360px){
+ .saveT{
+  .mn{
+   grid-row: 2/9;
+  grid-column: 1/4;
+  &:before{
+   display: none;
+  }
+  }
+  .save{
+   grid-row: 2/9;
+   grid-column: 5/9;
+   flex-wrap: nowrap $im;
+   &:before{
+    display: none;
+   }
+  }
+ }
+}
+
+#forms{
+ min-height: 18.75rem;
+ display: grid;
+ #{$gtr}: 1fr;
+ #{$gtc}: repeat(2,1fr);
+ grid-auto-flow: column;
+ grid-gap: 2rem;
+ .contact{
+  display: grid;
+  #{$gtr}: repeat(5,1fr);
+  #{$gtc}: repeat(6,1fr);
+  #{$gta}:
+  ". . . . . ."
+  "a a a a a a"
+  "a a a a a a"
+  "b b b c c c"
+  "b b b c c c";
+  grid-gap: 1rem;
+  h1{grid-area: a; text-align: $cn;}
+  .ph{grid-area: b;}
+    .em{grid-area: c;}
+  div{
+   @include flex-df(space-evenly,$cn,column wrap);
+   box-shadow: 1px 1px 3px 2px rgba(0,0,0,0.102);
+   border-radius: 0.625rem;
+   transition: $trans;
+   &:hover{
+    background: $dk-col;
+    box-shadow: none;
+    h4,span{color: $main-col;}
+   }
+  }
+ }
+ form{
+  padding: 1%;
+  display: grid;
+  #{$gtr}: repeat(8,1fr);
+  #{$gtc}: repeat(8,1fr);
+  grid-gap: 0.625rem;
+  #{$gta}:
+  "a a a a b b b b"
+  "a a a a b b b b"
+  "c c c c c c c c"
+  "c c c c c c c c"
+  "d d d d d d d d"
+  "d d d d d d d d"
+  "d d d d d d d d"
+  ". . . . . . e e";
+  fieldset{
+   border: 1px solid $ts;
+   padding-inline: 1%;
+   &:nth-child(1){grid-area: a; }
+   &:nth-child(2){grid-area: b;}
+   &:nth-child(3){grid-area: c;}
+   &:nth-child(4){grid-area: d;}
+   input,textarea{
+    width: 100%;
+    height: 100%;
+    padding: 2px 2% 2px 2%;
+    border-radius: 0.5rem;
+    border: $bd;
+    transition: $trans;
+    &:focus{
+     box-shadow: 1px 2px 4px 3px rgba(0,0,0,0.102);
+    }
+   }
+   legend{font-weight: bold;}
+  }
+  input[type="submit"]{
+   grid-area: e;
+  @include df-btn(0.625rem,2.1875rem, initial,$main-col,$dk-col,$main-col,$dk-col);
+
+  }
+ }
+}
+
+@media (width: 360px){
+ #forms{
+  min-height: 46.875rem;
+  #{$gtr}: repeat(2,1fr);
+  #{$gtc}: 1fr;
+ .contact{
+  div{ overflow: scroll;}
+ }
+ }
+}
+.ft-wrap{
+ padding: 1% 2% 1% 2%;
+}
+
+.ft{
+ min-height: 15.625rem;
+ @include flex-df(space-between,$cn, row wrap);
+ text-align: center;
+ background: url("/img_ico/wave-3.svg") no-repeat border-box $cn/cover;
+ margin-top: 2%;
+border-radius: 0.625rem;
+ box-shadow: 2px 2px 4px 3px rgba(0,0,0,0.102);
+ div{
+  flex: 0.1 1 auto;
+ }
+  .bl{
+  @include flex-df(space-evenly,$cn,column wrap); 
+  height: max-content;
+  .sc{
+   width: 100%;
+   @include flex-df(space-evenly,$cn,row wrap); }
+ }
+}
+@media (width: 360px){
+ .ft{
+  min-height: 40.75rem;
+  @include flex-df(space-evenly,$cn,column wrap $im);
+ }
+}
+@media (width: 740px){
+.ft{
+  min-height: 40.75rem;
+  @include flex-df(space-evenly,$cn,column wrap $im);
+ } 
+}
+ /*since everything was written with scss i will be expecting the cascade affecting some declaration so #{$im} will be used often
+ - dark mode : #393b4a
+ - col idea: cornsilk
+ */
+#dark{
+ transition: $trans;
+ background: $dk-mod;
+ *{
+  color: $wt;
+ }
+ .hd{
+  .intro{
+   h1 span{color: $main-col;}
+   .getSt{
+  @include df-btn(1.2rem,2.5rem,7.5rem,$main-col,$dk-col,$main-col,$dk-col);
+   }
+  }
+  .intro-img{
+   div{
+    background: $dk-mod;
+   }
+  }
+ }
+ .nv{
+  background: $dk-mod;
+  label{
+   background: inherit;
+   span{background: $main-col;}
+  }
+  .navUlOne{
+   background: inherit;
+  }
+  .log{color: $dk-col; &:hover{color: currentColor;}}
+ }
+ .mn:before,.save:before{color: $main-col;}
+ .save{
+  .getSt{
+ @include df-btn(1.2rem,2.5rem,7.5rem,$main-col,$dk-col,$main-col,$dk-col);
+  }
+ }
+ form{
+  input,textarea{
+   background: rgba(0,0,0,0.102);
+   color: cornsilk;
+   border: 1px solid rgba(91,255,202,0.502) $im;
+   &:hover{border-color: $ts $im;}
+  }
+ }
+ 
+ .ft{
+  transition: $trans;
+    box-shadow:  2px 2px 4px 3px rgba(91,255,202,0.502);
+  &:hover{  box-shadow: none;
+   }
+ }
+}
