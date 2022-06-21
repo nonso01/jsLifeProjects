@@ -520,7 +520,7 @@ body {
 }
 #forms .contact .em {
   grid-area: c;
-  overflow: scroll;
+  overflow: auto;
 }
 #forms .contact div {
   display: flex;
@@ -602,7 +602,7 @@ body {
     grid-template-columns: 1fr;
   }
   #forms .contact div {
-    overflow: scroll;
+    overflow: auto;
   }
 }
 .ft-wrap {
