@@ -1,1 +1,145 @@
+'use strict';
 
+//short hands
+
+const csl=(x)=>console.log(x);
+
+const dc=(x)=>document.createElement(x);
+
+const dq=(x)=>document.querySelector(x);
+
+const dqA=(x)=> document.querySelectorAll(x);
+
+//end short hand
+
+const body= dq('body');
+
+const header= dq('#Hd');
+
+const darkLight=dq('#darkLight');
+
+const cards= dq('#cards');
+
+let clicks=0;
+
+const cardContents=[
+
+ {
+
+  img: '/D-agency/img_ico/form.svg',
+
+  hText:'Product management',
+
+  sText:'30 available vacancy.'
+
+ },
+
+  {
+
+  img: '/D-agency/img_ico/duplicate.svg',
+
+  hText:'Web and mobile development',
+
+  sText:'28 available vacancy.'
+
+ },
+
+  {
+
+   img: '/D-agency/img_ico/form.svg',
+
+   hText: 'customer support',
+
+   sText: '25 available vacancy.'
+
+  },
+
+  {
+
+   img: '/D-agency/img_ico/duplicate.svg',
+
+   hText: 'Human resources',
+
+   sText: '29 available vacancy.'
+
+  },
+
+ {
+
+   img: '/D-agency/img_ico/form.svg',
+
+   hText: 'Design & creative',
+
+   sText: '27 available agency.'
+
+  },
+
+ {
+
+   img: '/D-agency/img_ico/duplicate.svg',
+
+   hText: 'Marketing & communication',
+
+   sText: '20 available agency'
+
+  },
+
+  {
+
+   img: '/D-agency/img_ico/form.svg',
+
+   hText: 'Business development',
+
+   sText: '30 available agency.'
+
+  },
+
+ {
+
+ img: '/D-agency/img_ico/form.svg',
+
+  hText: '+4 more',
+
+  sText: '15 available agency.'
+
+ },
+
+ ];
+
+function cardElem(){
+
+ //a better approach map method
+
+ 
+
+let displayCards= cardContents.map((item)=>{
+
+ 
+
+ return `<div class="cd"><img src=${item.img} width="40px" height="40px"> <h3>${item.hText}</h3> <span>${item.sText}</span></div>` ;
+
+ 
+
+});
+
+displayCards= displayCards.join("");
+
+cards.innerHTML= displayCards;
+
+}
+
+cardElem();
+
+function darkWhiteMode(){
+
+ darkLight.addEventListener('click',function(){
+
+ body.classList.toggle('dark');
+
+ });
+
+ 
+
+}
+
+darkWhiteMode();
